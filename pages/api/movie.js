@@ -2,15 +2,15 @@ export default async function handler(_, res) {
     try {
         const apiKey = process.env.IMDB_API_KEY;
         const moviesResponse = await fetch(selectRandomAPI(apiKey));
+        const body = await moviesResponse.json();
 
-        if (!moviesResponse.ok) {
-            res.status(moviesResponse.status).json(moviesResponse.statusText);
+        if (!moviesResponse.ok || body.errorMessage) {
+            console.error(`Status ${moviesResponse.status}: ${body.errorMessage}`);
+            res.status(500).json(body.errorMessage);
             return;
         }
 
-        const movies = await moviesResponse.json();
-        const selectedMovie = selectRandomMovie(movies.items);
-
+        const selectedMovie = selectRandomMovie(body.items);
         const details = await getMovieDetails(apiKey, selectedMovie);
         
         const movie = {
@@ -22,8 +22,8 @@ export default async function handler(_, res) {
         res.status(200).json(movie);
     }
     catch (e) {
-        console.error('Erro ao consultar a API do IMDB', e);
-        res.status(500).json({ error: 'Erro ao consultar a API do IMDB' });
+        console.error('Error fetching IMDB API', e);
+        res.status(500).json({ error: 'Error fetching IMDB API' });
     }
 }
 
