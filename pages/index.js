@@ -1,12 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import MovieCard from "../components/movieCard";
 
 export default function Home() {
+  const scrollRef = useRef();
   const [movie, setMovie] = useState();
   const [loading, setLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
 
   const findMovie = async () => {
+    scrollRef.current.scrollIntoView({ block: "start", inline: "nearest", behavior: "smooth" });
+
     setLoading(true);
     setMovie(null)
     setErrorMessage(null);
@@ -36,7 +39,7 @@ export default function Home() {
   }, []);
   
   return (
-    <main className="w-full flex flex-col items-center px-6 py-10 lg:py-10 bg-zinc-900">
+    <main ref={scrollRef} className="w-full flex flex-col items-center px-6 py-10 lg:py-10 bg-zinc-900">
 
         <h1 className="font-bold text-3xl text-white mb-10">
           Watch this <span className="text-purple-500">Movie</span>

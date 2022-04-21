@@ -6,7 +6,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <title>Movie Suggester</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" key="viewport"></meta>
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" key="viewport" />
       </Head>
       <Component {...pageProps} />
     </>
