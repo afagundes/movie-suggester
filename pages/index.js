@@ -8,6 +8,7 @@ export default function Home() {
 
   const findMovie = async () => {
     setLoading(true);
+    setMovie(null)
     setErrorMessage(null);
 
     const response = await fetch("/api/movie");
@@ -41,7 +42,7 @@ export default function Home() {
           Watch this <span className="text-purple-500">Movie</span>
         </h1>
 
-        <MovieCard movie={movie} errorMessage={errorMessage} />
+        <MovieCard movie={movie} loading={loading} errorMessage={errorMessage} />
 
         <button 
           onClick={findMovie}

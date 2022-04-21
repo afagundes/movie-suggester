@@ -1,6 +1,6 @@
 import Spinner from "./spinner";
 
-const MovieCard = ({ movie, errorMessage }) => {
+const MovieCard = ({ movie, loading, errorMessage }) => {
     if (errorMessage) {
         return (
             <p className="text-white">
@@ -9,10 +9,10 @@ const MovieCard = ({ movie, errorMessage }) => {
         )
     }
 
-    if (!movie) return <Spinner />
+    if (loading) return <Spinner />
 
     return (
-        <section className="flex flex-col lg:flex-row items-center lg:items-start gap-4 bg-slate-800 p-8 my-10 rounded-lg ring-1 ring-slate-900/5 shadow-md">
+        <section className="flex flex-col lg:flex-row items-center lg:items-start gap-4 bg-slate-800 p-8 my-4 lg:my-10 rounded-lg ring-1 ring-slate-900/5 shadow-md">
             <img
                 src={movie.image}
                 alt={movie.title}
