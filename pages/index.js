@@ -32,17 +32,19 @@ export default function Home() {
       await findMovie();
     }
 
-    fetchMovies();
+    //fetchMovies();
   }, []);
   
   return (
-    <main className="w-full min-h-screen flex flex-col items-center px-6 py-10 lg:py-10 bg-zinc-900">
+    <main className="w-full flex flex-col items-center px-6 py-10 lg:py-10 bg-zinc-900">
 
         <h1 className="font-bold text-3xl text-white mb-10">
           Watch this <span className="text-purple-500">Movie</span>
         </h1>
 
-        <MovieCard movie={movie} loading={loading} errorMessage={errorMessage} />
+        <div className="flex items-center justify-center min-h-card">
+          <MovieCard movie={movie} loading={loading} errorMessage={errorMessage} />
+        </div>
 
         <button 
           onClick={findMovie}
