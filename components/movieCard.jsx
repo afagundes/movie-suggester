@@ -12,7 +12,7 @@ const MovieCard = ({ movie, loading, errorMessage }) => {
     if (loading) return <Spinner />
 
     return (
-        <section className="flex flex-col lg:flex-row items-center lg:items-start gap-4 bg-slate-800 p-8 my-4 lg:my-10 rounded-lg ring-1 ring-slate-900/5 shadow-md">
+        <section className="flex flex-col lg:flex-row items-center lg:items-start gap-4 bg-slate-800 p-8 lg:my-10 rounded-lg ring-1 ring-slate-900/5 shadow-md">
             <img
                 src={movie.image}
                 alt={movie.title}

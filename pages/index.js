@@ -36,9 +36,9 @@ export default function Home() {
   }, []);
   
   return (
-    <main className="w-full min-h-screen flex flex-col justify-around items-center px-6 py-10 bg-zinc-900">
+    <main className="w-full min-h-screen flex flex-col items-center px-6 py-10 lg:py-10 bg-zinc-900">
 
-        <h1 className="font-bold text-3xl text-white">
+        <h1 className="font-bold text-3xl text-white mb-10">
           Watch this <span className="text-purple-500">Movie</span>
         </h1>
 
@@ -47,7 +47,7 @@ export default function Home() {
         <button 
           onClick={findMovie}
           disabled={loading}
-          className={(loading ? "cursor-not-allowed" : "hover:bg-purple-600 hover:-translate-y-0.5") + " bg-purple-800 transition ease-in duration-75 text-white font-bold py-2 w-full lg:w-1/4 rounded-lg shadow-md"}
+          className={(loading ? "cursor-not-allowed" : "hover:bg-purple-600 hover:-translate-y-0.5") + " bg-purple-800 transition ease-in duration-75 text-white font-bold py-2 mt-10 w-full lg:w-1/4 rounded-lg shadow-md"}
         >
           I want another movie
         </button>
