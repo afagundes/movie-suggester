@@ -1,6 +1,6 @@
 export default async function handler(_, res) {
     try {
-        const apiKey = 'k_7cnn9w7a';
+        const apiKey = process.env.IMDB_API_KEY;
         const moviesResponse = await fetch(`https://imdb-api.com/pt-BR/API/Top250Movies/${apiKey}`);
 
         if (!moviesResponse.ok) {
