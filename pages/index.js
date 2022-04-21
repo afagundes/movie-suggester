@@ -32,7 +32,7 @@ export default function Home() {
       await findMovie();
     }
 
-    //fetchMovies();
+    fetchMovies();
   }, []);
   
   return (
